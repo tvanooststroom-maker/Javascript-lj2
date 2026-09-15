@@ -4,12 +4,25 @@
 
 // 1. Selecteer #title met querySelector en verander de tekst
 //    naar iets anders met textContent
-
-
+document.querySelector('#title').textContent = 'Nieuwe titel';
 // 2. Voeg een click event listener toe aan #toggle-btn.
 //    Bij klik wisselt de tekstkleur van #message tussen rood en zwart.
 //    Gebruik een variabele om bij te houden of de tekst nu rood is.
-
+let isRed = true;
+document.querySelector('#toggle-btn').addEventListener('click', function() {
+    const element = document.querySelector('#message');
+    if (isRed) {
+        element.style.color = 'black';
+    } else {
+        element.style.color = 'red';
+    }
+    isRed = !isRed;
+});
 
 // 3. Voeg een click event listener toe aan #greet-btn.
 //    Lees de waarde van #name-input uit en toon 'Hallo, <naam>!' in #greeting.
+document.querySelector('#greet-btn').addEventListener('click', function() {
+    const nameInput = document.querySelector('#name-input').value;
+    const greeting = document.querySelector('#greeting');
+    greeting.textContent = 'Hallo, ' + nameInput + '!';
+});
